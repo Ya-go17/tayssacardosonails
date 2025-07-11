@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./5.style.css" />
+
+  <title>Cadastro</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <section class="header">
+      <h2>Nova conta</h2>
+    </section>
+
+    <form id="form" class="form">
+      <div class="form-content">
+        <label for="username">Nome do usuário</label>
+        <input type="text" id="username" placeholder="Digite o nome do usuario..." />
+        <p>Aqui vai a mensagem de erro....</p>
+      </div>
+
+      <div class="form-content">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite o seu email..." />
+        <p>Aqui vai a mensagem de erro....</p>
+      </div>
+
+      <div class="form-content">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha..." />
+        <div class="mostrar-senha">
+          <input type="checkbox" id="mostrar-password" />
+          <label for="mostrar-password">Mostrar senha</label>
+        </div>
+        <p>Aqui vai a mensagem de erro....</p>
+      </div>
+
+      <div class="form-content">
+        <label for="password-confirmation">Confirmação de senha</label>
+        <input type="password" id="password-confirmation" placeholder="Digite sua senha novamente..." />
+        <div class="mostrar-senha">
+          <input type="checkbox" id="mostrar-password-confirmation" />
+          <label for="mostrar-password-confirmation">Mostrar senha</label>
+        </div>
+        <p>Aqui vai a mensagem de erro....</p>
+      </div>
+
+      <button type="submit">Cadastrar</button>
+
+    </form>
+
+  </div>
+
+
+  <script src="./5.scripts.js"></script>
+</body>
+
+</html>

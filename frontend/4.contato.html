@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./4.style.css">
+    <title>Contato</title>
+</head>
+
+<body>
+    <div class="site-container">
+        <header>
+            <a href="http://127.0.0.1:5500/index.html"><img src="./assets/logo-tayssa.png" alt="logo"
+                    class="image-header"></a>
+            <nav>
+                <ul class="list">
+                    <li><a href="1.index.html" class="link-header">ínicio</a></li>
+                    <li><a href="2.sobre.html" class="link-header">Sobre</a></li>
+                    <li><a href="3.serviços.html" class="link-header">Serviços</a></li>
+                    <li><a href="4.contato.html" class="link-header">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="contato">
+                <h2>Agende seu horário</h2>
+                <form class="formulario">
+                    <input type="text" placeholder="Seu Nome" id="nome" required>
+
+                    <input type="tel" id="telefone" placeholder="whatsapp" required>
+
+                    <label for="data">Escolha a data:</label>
+                    <input type="date" id="data">
+                    <div id="erroData" class="mensagem-erro"></div>
+
+                    <label for="hora"> Escolha o Horário:</label>
+                    <input type="time" id="hora">
+                    <div id="erroHorario" class="mensagem-erro"></div>
+
+                    <button type="submit" class="button-input">Enviar</button>
+                </form>
+                <a href="https://wa.me/32998321638" class="btn-whatsapp" target="_blank"><img src="./assets/celular.png"
+                        class="img-form"></a>
+            </section>
+        </main>
+        <footer>
+            <h2 id="title-footer">Tayssa Cardoso</h2>
+            <p class="text-footer">Especialista em Nail Designer e em realçar a sua beleza com arte e cuidado</p>
+            <p class="text-footer">© 2025 Tayssa Cardoso | Todos os direitos reservados</p>
+            <div class="redes">
+                <a href="https://wa.me/32998321638"><img src="./assets/whatsapp.png" alt="logo-whats"
+                        class="img-footer"></a>
+                <a href="https://www.facebook.com/share/18zEKPeSe2/"><img src="./assets/facebook.png"
+                        alt="logo-facebook" class="img-footer"></a>
+                <a href="mailto:"><img src="./assets/gmail.png" alt="logo-gmail" class="img-footer"></a>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+  const horariosOcupados = [
+    { data: '2025-07-05', hora: '14:00' },
+    { data: '2025-07-06', hora: '10:30' }
+  ];
+
+  document.getElementById('formulario').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const dataOriginal = document.getElementById('data').value;
+    const hora = document.getElementById('hora').value;
+
+    const erroData = document.getElementById('erroData');
+    const erroHora = document.getElementById('erroHora');
+    const campoData = document.getElementById('data');
+    const campoHora = document.getElementById('hora');
+
+    // Limpa erros anteriores
+    erroData.textContent = '';
+    erroHora.textContent = '';
+    erroData.style.display = 'none';
+    erroHora.style.display = 'none';
+    campoData.classList.remove('erro');
+    campoHora.classList.remove('erro');
+
+    // Verifica se a data e hora já estão agendadas
+    const horarioJaExiste = horariosOcupados.some(agendamento => {
+      return agendamento.data === dataOriginal && agendamento.hora === hora;
+    });
+
+    if (horarioJaExiste) {
+      erroHora.textContent = 'Esse horário já está agendado. Escolha outro.';
+      erroHora.style.display = 'block';
+      campoHora.classList.add('erro');
+      campoData.classList.add('erro');
+      return;
+    }
+
+    // Verifica se o horário é permitido conforme o dia da semana
+    const dataSelecionada = new Date(dataOriginal + 'T00:00:00');
+    const diaSemana = dataSelecionada.getDay(); // 0 = domingo, 6 = sábado
+
+    const horaNum = parseFloat(hora.replace(":", "."));
+
+    let horarioPermitido = false;
+
+    if (diaSemana === 0) {
+      // Domingo: somente 08:00
+      horarioPermitido = hora === '08:00';
+    } else if (diaSemana === 6) {
+      // Sábado: 08:00–10:00 e 13:00–15:00
+      horarioPermitido = (
+        (horaNum >= 8.0 && horaNum < 10.0) ||
+        (horaNum >= 13.0 && horaNum < 15.0)
+      );
+    } else {
+      // Segunda a sexta: 13:00–17:30
+      horarioPermitido = (horaNum >= 13.0 && horaNum <= 17.5);
+    }
+
+    if (!horarioPermitido) {
+      erroHora.textContent = 'Horário não permitido para esse dia.';
+      erroHora.style.display = 'block';
+      campoHora.classList.add('erro');
+      return;
+    }
+
+    // Formata a data para dd/mm/aaaa
+    const partesData = dataOriginal.split('-');
+    const dataFormatada = `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
+
+    // Cria a mensagem para o WhatsApp
+    const mensagem = `Olá, meu nome é ${nome}. Gostaria de agendar um horário para o dia ${dataFormatada} às ${hora}. Meu número de contato é ${telefone}.`;
+
+    const numeroWhatsApp = '32998321638';
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, '_blank');
+  });
+</script>
+
+</html>

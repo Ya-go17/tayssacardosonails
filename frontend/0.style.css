@@ -1,0 +1,206 @@
+* {
+    font-family: "Abril Fatface", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  background: #000;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  background-color: #f89ad9;
+  border-radius: 25px;
+  margin: 14px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: 0 3px 5px rgba(235, 185, 226, 0.5);
+  overflow: hidden;
+}
+h1{
+    text-align: center;
+    font-size: 55px;
+}
+
+form{
+    padding: 18px;
+    background-color: #fddff3;
+}
+
+.form-content{
+  margin-bottom: 8px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.form-content label{
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.form-content input{
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid #dfdfdf;
+}
+
+.form-content p{
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  visibility: hidden;
+}
+button{
+  background-color: #fbb8fd;
+  color: #000;
+  width: 100%;
+  border-radius: 14px;
+  padding: 10px;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    color: #070707;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+}
+/* Estilo para o campo Mostrar Senha */
+.form-content.mostrar-senha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -8px;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+.form-content.mostrar-senha input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #fbb8fd;
+  cursor: pointer;
+}
+
+.form-content.mostrar-senha label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ========== Responsividade ========== */
+
+/* Celulares (até 600px) */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .container, form, section {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  header, footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-header, .logo-footer {
+    margin: 0 auto 10px;
+    width: 120px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  input, button {
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .form-content, .form-content label, .form-content input {
+    width: 100%;
+  }
+
+  section {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .key-form, .key-footer {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .form-content.mostrar-senha {
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .form-content.mostrar-senha input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-content.mostrar-senha label {
+    font-size: 14px;
+  }
+}
+
+
+/* Tablets (601px até 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container, form, section {
+    width: 90%;
+    padding: 20px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    font-size: 18px;
+  }
+
+  .logo-header, .logo-footer {
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  input, button {
+    font-size: 18px;
+  }
+
+  .form-content {
+    flex-direction: column;
+  }
+
+  section {
+    padding:20px;
+}
+}

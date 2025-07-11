@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./1.style.css" />
+  <title>Tayssa Cardoso Nail Designer</title>
+  <script>
+    // Bloqueia acesso se não estiver logado
+    if (localStorage.getItem("logado") !== "true") {
+      window.location.href = "0.index.html";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="site-container">
+    <header>
+      <a href="http://127.0.0.1:5500/index.html">
+        <img src="./assets/logo-tayssa.png" alt="logo" class="image-header" />
+      </a>
+      <nav>
+        <ul class="list">
+          <li><a href="1.index.html" class="link-header">Início</a></li>
+          <li><a href="2.sobre.html" class="link-header">Sobre</a></li>
+          <li><a href="3.serviços.html" class="link-header">Serviços</a></li>
+          <li><a href="4.contato.html" class="link-header">Contato</a></li>
+          <li>
+            <a href="#" id="logoutBtn" class="logout-button">Sair</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <h1 class="title-hero">Tayssa Cardoso</h1>
+        <h3 class="tiltee3-hero">Nail Designer</h3>
+        <p class="text-hero">
+          Bem-vinda ao Universo da Beleza e Sofisticação
+          <br />
+          Unhas não são apenas detalhes. Elas revelam seu estilo, sua
+          personalidade e sua essência. Com um olhar artístico e técnicas de
+          alto padrão, Tayssa Cardoso transforma cada atendimento em uma
+          experiência única, personalizada e inesquecível.
+          <br />
+          🌸 Atendimento exclusivo <br />
+          💅 Designs autorais e modernos <br />
+          ✨ Materiais de alta qualidade <br />
+          📍 Ambiente acolhedor e 100% higienizado
+          <br /><br />
+          Seja para um evento especial ou para se sentir ainda mais confiante no
+          dia a dia, aqui é o seu lugar. Realce sua beleza com quem entende de
+          cuidado e sofisticação.
+          <br />
+          Agende seu horário e descubra o poder de unhas bem feitas.
+          <br />
+          Você merece esse toque de glamour.
+        </p>
+        <a href="https://wa.me/32998321638" class="btn">Agende agora</a>
+      </section>
+    </main>
+
+    <footer>
+      <h2>Tayssa Cardoso</h2>
+      <p>Especialista em Nail Designer e em realçar a sua beleza com arte e cuidado</p>
+      <p>© 2025 Tayssa Cardoso | Todos os direitos reservados</p>
+      <div class="redes">
+        <a href="https://wa.me/32998321638"><img src="./assets/whatsapp.png" alt="logo-whats" class="img-footer" /></a>
+        <a href="https://www.facebook.com/share/18zEKPeSe2/"><img src="./assets/facebook.png" alt="logo-facebook" class="img-footer" /></a>
+        <a href="mailto:seuemail@example.com"><img src="./assets/gmail.png" alt="logo-gmail" class="img-footer" /></a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Script do botão logout
+    document.getElementById("logoutBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("logado");
+      window.location.href = "0.index.html";
+    });
+  </script>
+</body>
+
+</html>
